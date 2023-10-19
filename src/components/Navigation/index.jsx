@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { authSelector } from 'redux/auth/selectors';
 
 const Navigation = () => {
+  const isAuth = useSelector(authSelector);
   return (
     <nav>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/contacts">Contacts</NavLink>
+      {isAuth && <NavLink to="/contacts">Contacts</NavLink>}
     </nav>
   );
 };

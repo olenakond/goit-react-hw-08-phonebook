@@ -11,14 +11,15 @@ const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-dispatch(register({
-  name: e.currentTarget.elements.name.value,
-  email: e.currentTarget.elements.email.value,
-  password: e.currentTarget.elements.password.value,
-}));
-    console.log(e.currentTarget.elements.name.value);
-    console.log(e.currentTarget.elements.email.value);
-    console.log(e.currentTarget.elements.password.value);
+    const form = e.currentTarget;
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
   };
 
   return (
