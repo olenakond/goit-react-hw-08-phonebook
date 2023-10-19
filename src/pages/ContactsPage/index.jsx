@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Filter from 'components/Filter';
-import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { fetchContacts } from 'redux/contacts/operations';
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { Container, Title, TitleList } from './ContactsPage.styled';
 
 const ContactsPage = () => {
