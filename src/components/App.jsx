@@ -4,8 +4,17 @@ import HomePage from 'pages/HomePage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from 'components/Layout';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
 
 const App = () => {
+const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(refreshUser())
+}, [dispatch]);
+
   return (
     <div>
       <Routes>

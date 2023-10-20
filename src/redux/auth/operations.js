@@ -3,16 +3,12 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
-const instance = axios.create({
-	baseURL: 'https://practices-api.vercel.app/',
-})
-
 export const setToken = (token) => {
-	instance.defaults.headers.common['Authorization'] = `Bearer ${token}`
+	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
 export const deleteToken = () => {
-	delete instance.defaults.headers.common['Authorization']
+	axios.defaults.headers.common.Authorization = '';
 }
 
 export const register = createAsyncThunk(
@@ -47,6 +43,27 @@ export const logOut = createAsyncThunk(
     try {
       const response = await axios.post('/users/logout');
       deleteToken();
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshUser',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    
+
+    if(persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to find user');
+    }
+
+    try {
+      setToken(persistedToken);
+      const response = await axios.get('/users/current');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
