@@ -6,12 +6,12 @@ const RegisterPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   return (
-    <div>
+    <main>
       <h1> Registration</h1>
       <RegisterForm />
       {isLoading && <p>Loading...</p>}
       {error && <p>Something went wrong. Please, try again.</p>}
-    </div>
+    </main>
   );
 };
 

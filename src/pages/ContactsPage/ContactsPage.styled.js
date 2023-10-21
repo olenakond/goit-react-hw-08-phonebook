@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Container = styled('div')(() => {
+export const Container = styled('main')(() => {
   return {
     margin: '50px auto',
     width: 700,
