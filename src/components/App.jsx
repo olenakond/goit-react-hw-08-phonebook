@@ -5,6 +5,7 @@ import Layout from 'components/Layout';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -19,11 +20,12 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          
+
           <Route
             path="register"
             element={
@@ -50,7 +52,7 @@ const App = () => {
           />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 };
 

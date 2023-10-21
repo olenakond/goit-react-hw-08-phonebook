@@ -15,8 +15,12 @@ const Filter = () => {
     <div>
       <InputLabel htmlFor={filterInputId}>Find contacts by name</InputLabel>
       <TextField
-          variant="outlined"
-          fullWidth onChange={handleFilter} id={filterInputId} type="text" />
+        variant="outlined"
+        fullWidth
+        onChange={handleFilter}
+        id={filterInputId}
+        type="text"
+      />
     </div>
   );
 };

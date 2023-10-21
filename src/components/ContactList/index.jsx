@@ -10,13 +10,30 @@ const ContactList = () => {
 
   return (
     <>
-    <Typography variant="body1" component="h2" sx={{  mt: 2, color: blueGrey[800]}}>Contacts</Typography>
-      {contactsList && (
-        <List>
-          {contactsList.map(contact => (
-            <Contact key={contact.id} contact={contact} />
-          ))}
-        </List>
+      {contactsList.length > 0 && (
+        <>
+          <Typography
+            variant="body1"
+            component="h2"
+            sx={{ mt: 2, color: blueGrey[800] }}
+          >
+            Contacts
+          </Typography>
+          <List>
+            {contactsList.map(contact => (
+              <Contact key={contact.id} contact={contact} />
+            ))}
+          </List>
+        </>
+      )}
+      {contactsList.length === 0 && (
+        <Typography
+          variant="body1"
+          component="h2"
+          sx={{ mt: 2, color: blueGrey[800] }}
+        >
+          Create your contacts...
+        </Typography>
       )}
     </>
   );

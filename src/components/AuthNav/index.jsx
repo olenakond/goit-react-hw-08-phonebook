@@ -5,7 +5,7 @@ const AuthNav = () => {
     <nav>
       <List>
         <li>
-          <StyledLink to="/register">Register</StyledLink>
+          <StyledLink to="/register">Registration</StyledLink>
         </li>
         <li>
           <StyledLink to="/login">Log in</StyledLink>

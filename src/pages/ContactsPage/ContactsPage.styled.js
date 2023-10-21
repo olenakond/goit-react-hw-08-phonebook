@@ -13,9 +13,9 @@ export const ContactContainer = styled('div')`
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   width: 450px;
-  max-height: 300px;
+  height: 250px;
   background-color: #f7fcfc;
   border-radius: 10px;
   border: solid 1px #c5c7c7;
@@ -26,7 +26,7 @@ export const ListContainer = styled('div')`
   display: flex;
   flex-direction: column;
   justify-content: start;
- width: 450px;
+  width: 450px;
   background-color: #f7fcfc;
   border-radius: 10px;
   border: solid 1px #c5c7c7;

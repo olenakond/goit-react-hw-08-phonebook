@@ -1,7 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { Element, Button, Name } from './Contact.styled';
-import { Avatar, IconButton, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import {
+  Avatar,
+  IconButton,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { blueGrey } from '@mui/material/colors';
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
@@ -11,37 +18,28 @@ const Contact = ({ contact }) => {
   };
 
   return (
-
-  //   <ListItem
-  //   secondaryAction={
-  //     <IconButton edge="end" aria-label="delete">
-  //       <DeleteIcon />
-  //     </IconButton>
-  //   }
-  // >
-  //   <ListItemAvatar>
-  //     <Avatar>
-
-  //     </Avatar>
-  //   </ListItemAvatar>
-  //   <ListItemText
-  //     primary="Single-line item"
-  //     secondary={'Secondary text'}
-  //   />
-  // </ListItem>
-    <Element>
-      <Name>
-        {contact.name}: {contact.number}
-      </Name>
-      <Button type="button" onClick={handleDelete}>
-        Delete
-      </Button>
-    </Element>
+    <>
+      <ListItem
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            type="button"
+            onClick={handleDelete}
+          >
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemAvatar>
+          <Avatar sx={{ bgcolor: blueGrey[500] }}>
+            {contact.name.at(0).toUpperCase()}
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={contact.name} secondary={contact.number} />
+      </ListItem>
+    </>
   );
 };
 
 export default Contact;
-
-
-
-  

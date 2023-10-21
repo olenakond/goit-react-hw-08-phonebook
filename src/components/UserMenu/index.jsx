@@ -17,9 +17,30 @@ const UserMenu = () => {
 
   return (
     <Container>
-      <Typography variant="body1" component="p" mt={'auto'} mb={'auto'} sx={{ color: blueGrey[900]}}>Welcome {userName}</Typography>
-      <Typography variant="body1" component="p" mt={'auto'} mb={'auto'} sx={{ color: blueGrey[700]}}>{userEmail}</Typography>
-      <Button variant="outlined" size="small" type="submit" onClick={handleClick}>
+      <Typography
+        variant="body1"
+        component="p"
+        mt={'auto'}
+        mb={'auto'}
+        sx={{ color: blueGrey[900] }}
+      >
+        Welcome {userName}
+      </Typography>
+      <Typography
+        variant="body1"
+        component="p"
+        mt={'auto'}
+        mb={'auto'}
+        sx={{ color: blueGrey[700] }}
+      >
+        {userEmail}
+      </Typography>
+      <Button
+        variant="outlined"
+        size="small"
+        type="submit"
+        onClick={handleClick}
+      >
         Log out
       </Button>
     </Container>

@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { logIn } from 'redux/auth/operations';
 import { InputLabel, TextField, Button } from '@mui/material';
 import { Container } from './LoginForm.styled';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   const emailInputId = nanoid();
@@ -18,7 +19,11 @@ const LoginForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .unwrap()
+      .then(() =>
+        toast.success('Welcome', { duration: 3000, position: 'top-right' })
+      );
     form.reset();
   };
 

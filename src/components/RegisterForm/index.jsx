@@ -27,20 +27,41 @@ const RegisterForm = () => {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-      <InputLabel htmlFor={userInputId}>Name</InputLabel>
-      <TextField
+        <InputLabel htmlFor={userInputId}>Name</InputLabel>
+        <TextField
           variant="outlined"
-          fullWidth type="text" name="name" id={userInputId} required />
-      <InputLabel sx={{ mt: 2 }} htmlFor={emailInputId}>Email</InputLabel>
-      <TextField
+          fullWidth
+          type="text"
+          name="name"
+          id={userInputId}
+          required
+        />
+        <InputLabel sx={{ mt: 2 }} htmlFor={emailInputId}>
+          Email
+        </InputLabel>
+        <TextField
           variant="outlined"
-          fullWidth type="email" name="email" id={emailInputId} required />
-      <InputLabel sx={{ mt: 2 }} htmlFor={passwordInputId}>Password</InputLabel>
-      <TextField
+          fullWidth
+          type="email"
+          name="email"
+          id={emailInputId}
+          required
+        />
+        <InputLabel sx={{ mt: 2 }} htmlFor={passwordInputId}>
+          Password
+        </InputLabel>
+        <TextField
           variant="outlined"
-          fullWidth type="password" name="password" id={passwordInputId} required />
-      <Button variant="outlined" sx={{ mt: 2 }} type="submit">Register</Button>
-    </form>
+          fullWidth
+          type="password"
+          name="password"
+          id={passwordInputId}
+          required
+        />
+        <Button variant="outlined" sx={{ mt: 2 }} type="submit">
+          Register
+        </Button>
+      </form>
     </Container>
   );
 };

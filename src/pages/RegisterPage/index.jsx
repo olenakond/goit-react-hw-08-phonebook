@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import RegisterForm from 'components/RegisterForm';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
-import { Typography } from '@mui/material';
+import { LinearProgress, Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 
 const RegisterPage = () => {
@@ -9,10 +9,25 @@ const RegisterPage = () => {
   const error = useSelector(selectError);
   return (
     <main>
-      <Typography variant="h5" component="h1" sx={{ textAlign: 'center', mt: 3, color: blueGrey[900]}}> Registration</Typography>
+      {isLoading && <LinearProgress />}
+      <Typography
+        variant="h5"
+        component="h1"
+        sx={{ textAlign: 'center', mt: 3, color: blueGrey[900] }}
+      >
+        {' '}
+        Registration
+      </Typography>
       <RegisterForm />
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Something went wrong. Please, try again.</p>}
+      {error && (
+        <Typography
+          variant="body2"
+          component="p"
+          sx={{ textAlign: 'center', mt: 3, color: blueGrey[900] }}
+        >
+          Something went wrong. Please, try again.
+        </Typography>
+      )}
     </main>
   );
 };
