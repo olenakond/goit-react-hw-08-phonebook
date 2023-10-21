@@ -1,7 +1,6 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authSelector } from 'redux/auth/selectors';
-import { List } from './Navigation.styled';
+import { List, StyledLink } from './Navigation.styled';
 
 const Navigation = () => {
   const isAuth = useSelector(authSelector);
@@ -9,9 +8,9 @@ const Navigation = () => {
     <nav>
       <List>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <StyledLink to="/">Home</StyledLink>
         </li>
-        <li>{isAuth && <NavLink to="/contacts">Contacts</NavLink>}</li>
+        <li>{isAuth && <StyledLink to="/contacts">Contacts</StyledLink>}</li>
       </List>
     </nav>
   );

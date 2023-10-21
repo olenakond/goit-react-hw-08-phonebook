@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
-export const List = styled('ul')(() => {
-  return {
-    margin: '30px 0',
-    width: 650,
-    border: ' 2px outset',
-    borderRadius: 10,
-    padding: '20px 20px',
-  };
-});
+export const List = styled('ul')`
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #f7fcfc;
+  border-radius: 4px;
+  border: solid 1px #c5c7c7;
+`;

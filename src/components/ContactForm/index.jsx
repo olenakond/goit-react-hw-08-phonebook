@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
-import { Form, Input, Button } from './ContactForm.styled';
+import { InputLabel, TextField, Button } from '@mui/material';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -41,9 +41,11 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <label htmlFor={nameInputId}>Name</label>
-      <Input
+    <form onSubmit={handleSubmit}>
+      <InputLabel htmlFor={nameInputId}>Name</InputLabel>
+      <TextField
+        variant="outlined"
+        fullWidth
         onChange={handleChange}
         value={name}
         id={nameInputId}
@@ -54,8 +56,12 @@ const ContactForm = () => {
         title="Name may contain only letters. For example Adrian, Jacob."
         required
       />
-      <label htmlFor={numberInputId}>Number</label>
-      <Input
+      <InputLabel sx={{ mt: 2 }} htmlFor={numberInputId}>
+        Number
+      </InputLabel>
+      <TextField
+        variant="outlined"
+        fullWidth
         onChange={handleChange}
         value={number}
         id={numberInputId}
@@ -66,8 +72,10 @@ const ContactForm = () => {
         title="Phone number must be digits"
         required
       />
-      <Button type="submit">Add contact</Button>
-    </Form>
+      <Button variant="outlined" sx={{ mt: 2 }} type="submit">
+        Add contact
+      </Button>
+    </form>
   );
 };
 

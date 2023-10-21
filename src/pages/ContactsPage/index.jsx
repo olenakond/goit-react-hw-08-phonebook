@@ -5,27 +5,35 @@ import ContactList from 'components/ContactList';
 import Filter from 'components/Filter';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
-import { Container, Title, TitleList } from './ContactsPage.styled';
+import { Container, ContactContainer, ListContainer } from './ContactsPage.styled';
+import { Typography } from '@mui/material';
+import { blueGrey } from '@mui/material/colors';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <Container>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <TitleList>Contacts</TitleList>
-      <Filter />
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Something went wrong. Please, try again.</p>}
-      <ContactList />
+   <main>
+   <Typography variant="h3" component="h1" sx={{ textAlign: 'center', mt: 3, color: blueGrey[900]}}>Phone book</Typography>
+   <Container>
+      <ContactContainer>
+        <ContactForm />
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Something went wrong. Please, try again.</p>}
+      </ContactContainer>
+      <ListContainer>
+        <Filter />
+        <ContactList />
+      </ListContainer>
     </Container>
+   </main>
+   
   );
 };
 

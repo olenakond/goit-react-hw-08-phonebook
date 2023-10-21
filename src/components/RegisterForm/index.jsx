@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { register } from 'redux/auth/operations';
+import { Container } from './RegisterForm.styled';
+import { Button, InputLabel, TextField } from '@mui/material';
 
 const RegisterForm = () => {
   const emailInputId = nanoid();
@@ -23,15 +25,23 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor={userInputId}>Name</label>
-      <input type="text" name="name" id={userInputId} required />
-      <label htmlFor={emailInputId}>Email</label>
-      <input type="email" name="email" id={emailInputId} required />
-      <label htmlFor={passwordInputId}>Password</label>
-      <input type="password" name="password" id={passwordInputId} required />
-      <button type="submit">Register</button>
+    <Container>
+      <form onSubmit={handleSubmit}>
+      <InputLabel htmlFor={userInputId}>Name</InputLabel>
+      <TextField
+          variant="outlined"
+          fullWidth type="text" name="name" id={userInputId} required />
+      <InputLabel sx={{ mt: 2 }} htmlFor={emailInputId}>Email</InputLabel>
+      <TextField
+          variant="outlined"
+          fullWidth type="email" name="email" id={emailInputId} required />
+      <InputLabel sx={{ mt: 2 }} htmlFor={passwordInputId}>Password</InputLabel>
+      <TextField
+          variant="outlined"
+          fullWidth type="password" name="password" id={passwordInputId} required />
+      <Button variant="outlined" sx={{ mt: 2 }} type="submit">Register</Button>
     </form>
+    </Container>
   );
 };
 

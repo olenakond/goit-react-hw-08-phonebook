@@ -1,27 +1,33 @@
 import { styled } from 'styled-components';
 
-export const Container = styled('main')(() => {
-  return {
-    margin: '50px auto',
-    width: 700,
-    backgroundColor: '#f4f4fd',
-    borderRadius: 10,
-    padding: '20px 20px',
-  };
-});
+export const Container = styled('div')`
+  margin: 40px auto;
+  padding: 20px 20px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  border-radius: 10px;
+`;
 
-export const Title = styled('h1')(() => {
-  return {
-    marginBottom: 20,
-    fontSize: 30,
-    textAlign: 'center',
-  };
-});
+export const ContactContainer = styled('div')`
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  max-height: 300px;
+  background-color: #f7fcfc;
+  border-radius: 10px;
+  border: solid 1px #c5c7c7;
+`;
 
-export const TitleList = styled('h2')(() => {
-  return {
-    marginBottom: 20,
-    fontSize: 24,
-    textAlign: 'center',
-  };
-});
+export const ListContainer = styled('div')`
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+ width: 450px;
+  background-color: #f7fcfc;
+  border-radius: 10px;
+  border: solid 1px #c5c7c7;
+`;
