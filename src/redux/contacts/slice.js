@@ -9,6 +9,7 @@ const contactsInitialState = {
 
 const handlePending = state => {
   state.isLoading = true;
+  state.error = null;
 };
 
 const handleRejected = (state, { payload }) => {
@@ -39,8 +40,12 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1);
       })
-      .addMatcher(action => action.type.endsWith('/pending'), handlePending)
-      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected);
+      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.rejected, handleRejected)
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.rejected, handleRejected)
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.rejected, handleRejected)
   },
 });
 

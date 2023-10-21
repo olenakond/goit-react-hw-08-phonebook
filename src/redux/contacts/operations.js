@@ -1,12 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+import {setToken} from 'redux/auth/operations';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if(persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to find user');
+    }
     try {
+      setToken(persistedToken);
       const response = await axios.get('/contacts');
       return response.data;
     } catch (e) {

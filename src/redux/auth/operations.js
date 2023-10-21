@@ -55,7 +55,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    
 
     if(persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to find user');

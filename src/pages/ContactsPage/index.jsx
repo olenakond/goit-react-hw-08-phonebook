@@ -11,7 +11,7 @@ const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
+  
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -22,7 +22,7 @@ const ContactsPage = () => {
       <ContactForm />
       <TitleList>Contacts</TitleList>
       <Filter />
-      {isLoading && !error && <p>Loading...</p>}
+      {isLoading && <p>Loading...</p>}
       {error && <p>Something went wrong. Please, try again.</p>}
       <ContactList />
     </Container>

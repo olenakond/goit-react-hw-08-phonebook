@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 import { register } from 'redux/auth/operations';
 
 const RegisterForm = () => {

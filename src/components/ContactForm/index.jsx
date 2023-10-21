@@ -50,6 +50,7 @@ const ContactForm = () => {
         type="text"
         name="name"
         pattern="[A-Za-z]{1,32}"
+        placeholder="Name"
         title="Name may contain only letters. For example Adrian, Jacob."
         required
       />
@@ -61,6 +62,7 @@ const ContactForm = () => {
         type="tel"
         name="number"
         pattern="[0-9]{1,32}"
+        placeholder="123456789"
         title="Phone number must be digits"
         required
       />
